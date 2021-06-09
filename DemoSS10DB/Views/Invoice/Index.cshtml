@@ -1,0 +1,35 @@
+﻿<h3>Invoice</h3>
+<form method="get" asp-controller="invoice" asp-action="search">
+    Keyword <input type="text" name="keyword" />
+    <input type="submit" value="Search" />
+</form>
+
+<br />
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Total</th>
+        <th>Payment</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var invoice in ViewBag.invoices)
+    {
+        <tr>
+            <td>@invoice.Id</td>
+            <td>@invoice.Name</td>
+            <td>@invoice.Total</td>
+            <td>@invoice.Payment</td>
+            <td>@invoice.Status</td>
+            
+            @*<td>
+                <a asp-controller="account" asp-action="details" asp-route-id="@account.Id">Details</a>
+                ||
+                <a asp-controller="account" asp-action="edit" asp-route-id="@account.Id" onclick="return confirm('Are you sure')">Edit</a>
+                ||
+                <a asp-controller="account" asp-action="delete" asp-route-id="@account.Id" onclick="return confirm('Are you sure')">Delete</a>
+
+            </td>*@
+        </tr>
+    }
+</table>

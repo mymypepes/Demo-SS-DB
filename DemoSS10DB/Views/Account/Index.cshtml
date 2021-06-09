@@ -1,0 +1,35 @@
+﻿<h3>Account List</h3>
+<form method="get" asp-controller="account" asp-action="search">
+    Keyword <input type="text" name="keyword" />
+    <input type="submit" value="Search" />
+</form>
+<a asp-controller="account" asp-action="add">Add</a>
+<br/>
+<table border="1" >
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>FullName</th>
+        <th>Photo</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var account in ViewBag.accounts)
+            {
+<tr>
+    <td>@account.Id</td>
+    <td>@account.Username</td>
+    <td>@account.FullName</td>
+    <td>
+        <img src="~/images/@account.Photo" width="120" height="120" />
+    </td>
+    <td>
+        <a asp-controller="account" asp-action="details" asp-route-id="@account.Id">Details</a>
+        ||
+        <a asp-controller="account" asp-action="edit" asp-route-id="@account.Id" onclick="return confirm('Are you sure')">Edit</a>
+        ||
+        <a asp-controller="account" asp-action="delete" asp-route-id="@account.Id" onclick="return confirm('Are you sure')">Delete</a>
+
+    </td>
+</tr>
+            }
+</table>

@@ -1,0 +1,21 @@
+﻿<h3>Details</h3>
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>FullName</th>
+        <th>Photo</th>
+    </tr>
+
+    <tr>
+        <td>@ViewBag.account.Id</td>
+        <td>@ViewBag.account.Username</td>
+        <td>@ViewBag.account.FullName</td>
+        <td>
+            <img src="~/images/@ViewBag.account.Photo" width="120" height="120" />
+        </td>
+    </tr>
+
+</table>
+<a asp-controller="account" asp-action="account"></a>
